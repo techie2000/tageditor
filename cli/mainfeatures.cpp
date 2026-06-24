@@ -121,6 +121,8 @@ int exitCode = EXIT_SUCCESS;
 
 void printFieldNames(const ArgumentOccurrence &)
 {
+    CMD_UTILS_START_CONSOLE;
+
     cout << "Field and track attribute names allow referring to a field or track attribute in a format-independent way.\n"
             " - Field names:\n      " FIELD_NAMES "\n"
             " - Track attribute names: " TRACK_ATTRIBUTE_NAMES "\n\n"
@@ -136,6 +138,8 @@ void printFieldNames(const ArgumentOccurrence &)
 
 void generateFileInfo(const ArgumentOccurrence &, const Argument &inputFileArg, const Argument &outputFileArg, const Argument &validateArg)
 {
+    CMD_UTILS_START_CONSOLE;
+
 #if defined(TAGEDITOR_GUI_QTWIDGETS) || defined(TAGEDITOR_GUI_QTQUICK)
     try {
         // parse tags
@@ -184,6 +188,8 @@ void generateFileInfo(const ArgumentOccurrence &, const Argument &inputFileArg, 
 void displayFileInfo(
     const ArgumentOccurrence &, const Argument &filesArg, const Argument &verboseArg, const Argument &pedanticArg, const Argument &validateArg)
 {
+    CMD_UTILS_START_CONSOLE;
+
     // check whether files have been specified
     if (!filesArg.isPresent() || filesArg.values().empty()) {
         cerr << Phrases::Error << "No files have been specified." << Phrases::End;
@@ -375,6 +381,8 @@ void displayFileInfo(
 void displayTagInfo(
     const Argument &fieldsArg, const Argument &showUnsupportedArg, const Argument &filesArg, const Argument &verboseArg, const Argument &pedanticArg)
 {
+    CMD_UTILS_START_CONSOLE;
+
     // check whether files have been specified
     if (!filesArg.isPresent() || filesArg.values().empty()) {
         std::cerr << Phrases::Error << "No files have been specified." << Phrases::End;
@@ -599,6 +607,8 @@ void JavaScriptProcessor::addWarnings(Diagnostics &diag, const string &context, 
  */
 void setTagInfo(const SetTagInfoArgs &args)
 {
+    CMD_UTILS_START_CONSOLE;
+
     // check whether files have been specified
     if (!args.filesArg.isPresent() || args.filesArg.values().empty()) {
         std::cerr << Phrases::Error << "No files have been specified." << Phrases::EndFlush;
@@ -1146,6 +1156,8 @@ void setTagInfo(const SetTagInfoArgs &args)
 void extractField(const Argument &fieldArg, const Argument &attachmentArg, const Argument &inputFilesArg, const Argument &outputFileArg,
     const Argument &indexArg, const Argument &verboseArg)
 {
+    CMD_UTILS_START_CONSOLE;
+
     // parse specified field and attachment
     const auto fieldDenotations = parseFieldDenotations(fieldArg, true);
     auto attachmentInfo = AttachmentInfo();
@@ -1333,6 +1345,8 @@ void extractField(const Argument &fieldArg, const Argument &attachmentArg, const
 
 void exportToJson(const ArgumentOccurrence &, const Argument &filesArg, const Argument &prettyArg)
 {
+    CMD_UTILS_START_CONSOLE;
+
 #ifdef TAGEDITOR_JSON_EXPORT
     // check whether files have been specified
     if (!filesArg.isPresent() || filesArg.values().empty()) {
